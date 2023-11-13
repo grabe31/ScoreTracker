@@ -1,0 +1,20 @@
+<htmlxmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Scores</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentScore : ${scores}">
+<td th:text="${currentScore.id}"/>
+<td th:text="${currentScore.type}"/>
+<td th:text="${currentScore.points}"/>
+<td th:text="${currentScore.player.playerName}"/>
+<td th:text="${currentScore.player.number}"/>
+</tr>
+</table>
+</form>
+<a href="../inputScore">Add a new Score</a>
+</body>
+</html>
