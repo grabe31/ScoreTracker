@@ -6,12 +6,14 @@
 <body>
 <form>
 <table>
-<tr th:each="currentScore : ${scores}">
+<tr th:each="currentScore : ${score}">
 <td th:text="${currentScore.id}"/>
 <td th:text="${currentScore.type}"/>
 <td th:text="${currentScore.points}"/>
 <td th:text="${currentScore.player.playerName}"/>
 <td th:text="${currentScore.player.number}"/>
+<td><a th:href="@{/edit/{id}(id=${currentScore.id})}">Edit</a> </td>
+<td><a th:href="@{/delete/{id}(id=${currentScore.id})}">Delete</a></td>
 </tr>
 </table>
 </form>

@@ -1,13 +1,14 @@
 package dmacc.beans;
 
 import jakarta.persistence.Embeddable;
+import lombok.Data;
 
 /**
  * @author Eric Grabe - egrabe
  * CIS175 - Fall 2023
  * Nov 12, 2023
  */
-
+@Data
 @Embeddable
 public class Player {
 	
@@ -16,7 +17,7 @@ public class Player {
 
 	
 	public Player() {
-		super();
+		//super();
 	}
 	
 	public Player(String playerName, int number) {

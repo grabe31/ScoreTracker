@@ -5,13 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.Data;
 
 /**
  * @author Eric Grabe - egrabe
  * CIS175 - Fall 2023
  * Nov 12, 2023
  */
-
+@Data
 @Entity
 public class Score {
 	@Id
@@ -25,7 +26,7 @@ public class Score {
 	private Player player;
 	
 	public Score() {
-		super();
+		//super();
 	}
 	
 	public Score(String type, Player player, int number, int points) {

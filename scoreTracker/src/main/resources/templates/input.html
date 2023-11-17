@@ -1,0 +1,17 @@
+<htmlxmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Score</title>
+</head>
+<body>
+<form th:object="${score}" th:action="@{/update/{id}(id=${score.id})} "method='POST'>
+Name: <input name="player.playerName" size="20" th:field="*{player.playerName}"> <br />
+Number: <input name="player.number"size="20" th:field="*{player.number}"><br />
+Type: <input name="type" size="10" th:field="*{type}"><br />
+Points: <input name="points" size="20" th:field="*{points}"><br /> 
+
+<input name="submit "type="submit" value="submit"/>
+</form>
+<a href="viewAll">View all Scores</a>
+</body>
+</html>
