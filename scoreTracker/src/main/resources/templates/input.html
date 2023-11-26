@@ -2,16 +2,45 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert New Score</title>
+<style>
+	.error{ color: red;
+	display:inline-block;
+	margin-left: 10px;
+	}
+</style>
 </head>
 <body>
-<form th:object="${score}" th:action="@{/update/{id}(id=${score.id})} "method='POST'>
-Name: <input name="player.playerName" size="20" th:field="*{player.playerName}"> <br />
+<form id="inputForm" onsubmit= "return validateForm()" th:object="${score}" th:action="@{/update/{id}(id=${score.id})} "method='POST'>
+Name:<input id="name" name="player.playerName" type="text" size="20" th:field="*{player.playerName}">
+<span id="nameError" class="error"></span><br />
 Number: <input name="player.number"size="20" th:field="*{player.number}"><br />
 Type: <input name="type" size="10" th:field="*{type}"><br />
-Points: <input name="points" size="20" th:field="*{points}"><br /> 
-
+Points: <input name="points" size="20" th:field="*{points}">
+<span id="pointsError" class="error"></span><br />
 <input name="submit "type="submit" value="submit"/>
 </form>
+
+<script>
+	function validateForm(){
+		document.getElementById('nameError').innerHTML = '';
+		document.getElementById('pointsError').innerHTML = '';
+
+		var name = document.getElementById('name').value;
+		var points = document.getElementById('points').value;
+		// console.log('nameErrorElement:', nameErrorElement);
+
+		if(name === '' || name == null){
+			document.getElementById('nameError').innerHTML = 'Name is required';
+			return false;
+			}
+		else if(points <1 || points>6){
+			document.getElementById('pointsError').innerHTML = 'Points must be between 1 and 6';
+			return false;
+			}
+			
+			return true;
+		}
+</script>
 <a href="viewAll">View all Scores</a>
 </body>
 </html>
